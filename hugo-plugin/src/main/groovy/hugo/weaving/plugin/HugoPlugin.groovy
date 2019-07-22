@@ -36,12 +36,14 @@ class HugoPlugin implements Plugin<Project> {
         configureCompileJavaTask(variant, variant.javaCompileProvider.get(), transform)
       }
     }
-
+    project.repositories {
+      maven { url "https://jitpack.io" }
+    }
     project.dependencies {
-      debugImplementation 'com.github.skedgo.hugo:hugo-runtime:1.2.2'
+      debugImplementation 'com.github.skedgo.hugo:hugo-runtime:master-SNAPSHOT'
       // TODO this should come transitively
       debugImplementation 'org.aspectj:aspectjrt:1.8.6'
-      implementation 'com.github.skedgo.hugo:hugo-annotations:1.2.2'
+      implementation 'com.github.skedgo.hugo:hugo-annotations:master-SNAPSHOT'
     }
     project.extensions.create('hugo', HugoExtension)
   }
