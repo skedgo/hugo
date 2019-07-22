@@ -141,7 +141,7 @@ class HugoTransform extends Transform {
 
     @Override
     Set<QualifiedContent.ContentType> getInputTypes() {
-        return Collections.singleton(QualifiedContent.DefaultContentType.CLASSES)
+        return Collections.singleton((QualifiedContent.ContentType) QualifiedContent.DefaultContentType.CLASSES)
     }
 
     @Override
