@@ -26,22 +26,22 @@ class HugoPlugin implements Plugin<Project> {
       android.registerTransform(transform)
 
       android.libraryVariants.all { BaseVariant variant ->
-        configureCompileJavaTask(variant, variant.javaCompile, transform)
+        configureCompileJavaTask(variant, variant.javaCompileProvider.get(), transform)
       }
     } else {
       def android = project.extensions.getByType(AppExtension)
       android.registerTransform(transform)
 
       android.applicationVariants.all { BaseVariant variant ->
-        configureCompileJavaTask(variant, variant.javaCompile, transform)
+        configureCompileJavaTask(variant, variant.javaCompileProvider.get(), transform)
       }
     }
 
     project.dependencies {
-      debugCompile 'com.jakewharton.hugo:hugo-runtime:1.2.2-SNAPSHOT'
+      debugImplementation 'com.github.skedgo.hugo:hugo-runtime:1.2.2-SNAPSHOT'
       // TODO this should come transitively
-      debugCompile 'org.aspectj:aspectjrt:1.8.6'
-      compile 'com.jakewharton.hugo:hugo-annotations:1.2.2-SNAPSHOT'
+      debugImplementation 'org.aspectj:aspectjrt:1.8.6'
+      implementation 'com.github.skedgo.hugo:hugo-annotations:1.2.2-SNAPSHOT'
     }
     project.extensions.create('hugo', HugoExtension)
   }
