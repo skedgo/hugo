@@ -14,7 +14,12 @@ dependencies {
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
-  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion 7
+    versionCode 1
+    versionName "1.0"
+  }
 
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_7
@@ -23,7 +28,7 @@ android {
 }
 
 android.libraryVariants.all { variant ->
-  JavaCompile javaCompile = variant.javaCompile
+  JavaCompile javaCompile = variant.javaCompileProvider.get()
   javaCompile.doLast {
     String[] args = [
         "-showWeaveInfo",

@@ -16,6 +16,7 @@ buildscript {
 allprojects {
   repositories {
     mavenCentral()
+    google()
   }
 
   group = GROUP
@@ -25,8 +26,7 @@ allprojects {
 }
 
 ext {
-  compileSdkVersion = 23
-  buildToolsVersion = '23.0.1'
+  compileSdkVersion = 28
 }
 
 task cleanExample(type: Exec) {
