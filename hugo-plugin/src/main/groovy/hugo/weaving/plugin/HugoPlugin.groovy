@@ -40,10 +40,10 @@ class HugoPlugin implements Plugin<Project> {
       maven { url "https://jitpack.io" }
     }
     project.dependencies {
-      debugImplementation 'com.github.skedgo.hugo:hugo-runtime:master-SNAPSHOT'
+      debugImplementation 'com.github.skedgo.hugo:hugo-runtime:1.2.3'
       // TODO this should come transitively
       debugImplementation 'org.aspectj:aspectjrt:1.8.6'
-      implementation 'com.github.skedgo.hugo:hugo-annotations:master-SNAPSHOT'
+      implementation 'com.github.skedgo.hugo:hugo-annotations:1.2.3'
     }
     project.extensions.create('hugo', HugoExtension)
   }
