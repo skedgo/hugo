@@ -26,14 +26,14 @@ class HugoPlugin implements Plugin<Project> {
       android.registerTransform(transform)
 
       android.libraryVariants.all { BaseVariant variant ->
-        configureCompileJavaTask(variant, variant.javaCompileProvider.get(), transform)
+        configureCompileJavaTask(variant, variant.javaCompile, transform)
       }
     } else {
       def android = project.extensions.getByType(AppExtension)
       android.registerTransform(transform)
 
       android.applicationVariants.all { BaseVariant variant ->
-        configureCompileJavaTask(variant, variant.javaCompileProvider.get(), transform)
+        configureCompileJavaTask(variant, variant.javaCompile, transform)
       }
     }
     project.repositories {
